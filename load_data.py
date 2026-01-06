@@ -93,3 +93,15 @@ class DataLoader:
 
     def stop(self):
         self.spark.stop()
+        
+    def inspect_df(self, df, name="DataFrame"):
+        if df is None:
+            print(f"DataFrame {name} is None (not loaded).")
+            return
+            
+        print(f"\n=== INSPECTING: {name} ===")
+        print(f"Total Rows: {df.count()}")
+        print("--- Schema ---")
+        df.printSchema()
+        print("--- First 5 Rows ---")
+        df.show(5, truncate=False)
