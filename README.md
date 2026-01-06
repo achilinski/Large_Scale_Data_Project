@@ -11,9 +11,13 @@ gsutil cp "gs://clusterdata-2011-2/task_events/part-0026[5-9]-*.csv.gz" .
 gsutil cp "gs://clusterdata-2011-2/task_usage/part-0026[5-9]-*.csv.gz" .
 
 Move all files to their own folder like:
+
 ./dataset/machine_events
+
 ./dataset/job_Events
+
 ./dataset/task_events
+
 ./dataset/task_usage
 
 To use DataLoader class refer to question1.py 
