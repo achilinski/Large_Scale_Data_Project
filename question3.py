@@ -12,7 +12,7 @@ def main():
     print("STARTING ANALYSIS")
     print("="*50)
 
-    print("\n>>> Q2: Percentage of computational power lost due to maintenance")
+    print("\n>>> Q3: Percentage of computational power lost due to maintenance")
     
     machine_window = Window.partitionBy("machine_id").orderBy("timestamp")
                           
