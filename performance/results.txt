@@ -1,0 +1,204 @@
+============================================================
+Testing Configuration 1/7
+============================================================
+{
+  "USE_CACHING": false,
+  "USE_BROADCAST_JOIN": false,
+  "EARLY_COLUMN_PROJECTION": false,
+  "OPTIMIZE_PARTITIONING": false,
+  "OPTIMIZED_FILTER_ORDER": false
+}
+
+  Iteration 1/3...
+  Runtime: 60.44s
+
+  Iteration 2/3...
+  Runtime: 58.90s
+
+  Iteration 3/3...
+  Runtime: 69.00s
+
+============================================================
+Testing Configuration 2/7
+============================================================
+{
+  "USE_CACHING": true,
+  "USE_BROADCAST_JOIN": false,
+  "EARLY_COLUMN_PROJECTION": false,
+  "OPTIMIZE_PARTITIONING": false,
+  "OPTIMIZED_FILTER_ORDER": false
+}
+
+  Iteration 1/3...
+  Runtime: 171.39s
+
+  Iteration 2/3...
+  Runtime: 181.94s
+
+  Iteration 3/3...
+  Runtime: 154.71s
+
+============================================================
+Testing Configuration 3/7
+============================================================
+{
+  "USE_CACHING": false,
+  "USE_BROADCAST_JOIN": true,
+  "EARLY_COLUMN_PROJECTION": false,
+  "OPTIMIZE_PARTITIONING": false,
+  "OPTIMIZED_FILTER_ORDER": false
+}
+
+  Iteration 1/3...
+  Runtime: 63.67s
+
+  Iteration 2/3...
+  Runtime: 70.24s
+
+  Iteration 3/3...
+  Runtime: 65.92s
+
+============================================================
+Testing Configuration 4/7
+============================================================
+{
+  "USE_CACHING": false,
+  "USE_BROADCAST_JOIN": false,
+  "EARLY_COLUMN_PROJECTION": true,
+  "OPTIMIZE_PARTITIONING": false,
+  "OPTIMIZED_FILTER_ORDER": false
+}
+
+  Iteration 1/3...
+  Runtime: 99.67s
+
+  Iteration 2/3...
+  Runtime: 64.85s
+
+  Iteration 3/3...
+  Runtime: 61.93s
+
+============================================================
+Testing Configuration 5/7
+============================================================
+{
+  "USE_CACHING": false,
+  "USE_BROADCAST_JOIN": false,
+  "EARLY_COLUMN_PROJECTION": false,
+  "OPTIMIZE_PARTITIONING": true,
+  "OPTIMIZED_FILTER_ORDER": false
+}
+
+  Iteration 1/3...
+  Runtime: 85.13s
+
+  Iteration 2/3...
+  Runtime: 68.72s
+
+  Iteration 3/3...
+  Runtime: 70.22s
+
+============================================================
+Testing Configuration 6/7
+============================================================
+{
+  "USE_CACHING": false,
+  "USE_BROADCAST_JOIN": false,
+  "EARLY_COLUMN_PROJECTION": false,
+  "OPTIMIZE_PARTITIONING": false,
+  "OPTIMIZED_FILTER_ORDER": true
+}
+
+  Iteration 1/3...
+  Runtime: 55.23s
+
+  Iteration 2/3...
+  Runtime: 55.59s
+
+  Iteration 3/3...
+  Runtime: 55.18s
+
+============================================================
+Testing Configuration 7/7
+============================================================
+{
+  "USE_CACHING": true,
+  "USE_BROADCAST_JOIN": true,
+  "EARLY_COLUMN_PROJECTION": true,
+  "OPTIMIZE_PARTITIONING": true,
+  "OPTIMIZED_FILTER_ORDER": true
+}
+
+  Iteration 1/3...
+  Runtime: 69.83s
+
+  Iteration 2/3...
+  Runtime: 69.15s
+
+  Iteration 3/3...
+  Runtime: 71.37s
+
+============================================================
+PERFORMANCE SUMMARY
+============================================================
+
+Config 1: {'USE_CACHING': False, 'USE_BROADCAST_JOIN': False, 'EARLY_COLUMN_PROJECTION': False, 'OPTIMIZE_PARTITIONING': False, 'OPTIMIZED_FILTER_ORDER': False}
+  Avg Runtime: 62.78s
+  Min Runtime: 58.90s
+  Max Runtime: 69.00s
+
+Config 2: {'USE_CACHING': True, 'USE_BROADCAST_JOIN': False, 'EARLY_COLUMN_PROJECTION': False, 'OPTIMIZE_PARTITIONING': False, 'OPTIMIZED_FILTER_ORDER': False}
+  Avg Runtime: 169.35s
+  Min Runtime: 154.71s
+  Max Runtime: 181.94s
+
+Config 3: {'USE_CACHING': False, 'USE_BROADCAST_JOIN': True, 'EARLY_COLUMN_PROJECTION': False, 'OPTIMIZE_PARTITIONING': False, 'OPTIMIZED_FILTER_ORDER': False}
+  Avg Runtime: 66.61s
+  Min Runtime: 63.67s
+  Max Runtime: 70.24s
+
+Config 4: {'USE_CACHING': False, 'USE_BROADCAST_JOIN': False, 'EARLY_COLUMN_PROJECTION': True, 'OPTIMIZE_PARTITIONING': False, 'OPTIMIZED_FILTER_ORDER': False}
+  Avg Runtime: 75.48s
+  Min Runtime: 61.93s
+  Max Runtime: 99.67s
+
+Config 5: {'USE_CACHING': False, 'USE_BROADCAST_JOIN': False, 'EARLY_COLUMN_PROJECTION': False, 'OPTIMIZE_PARTITIONING': True, 'OPTIMIZED_FILTER_ORDER': False}
+  Avg Runtime: 74.69s
+  Min Runtime: 68.72s
+  Max Runtime: 85.13s
+
+Config 6: {'USE_CACHING': False, 'USE_BROADCAST_JOIN': False, 'EARLY_COLUMN_PROJECTION': False, 'OPTIMIZE_PARTITIONING': False, 'OPTIMIZED_FILTER_ORDER': True}
+  Avg Runtime: 55.33s
+  Min Runtime: 55.18s
+  Max Runtime: 55.59s
+
+Config 7: {'USE_CACHING': True, 'USE_BROADCAST_JOIN': True, 'EARLY_COLUMN_PROJECTION': True, 'OPTIMIZE_PARTITIONING': True, 'OPTIMIZED_FILTER_ORDER': True}
+  Avg Runtime: 70.12s
+  Min Runtime: 69.15s
+  Max Runtime: 71.37s
+
+============================================================
+STARTING VISUALIZATION GENERATION
+============================================================
+✓ Loaded results from performance_results.json
+  Total runs: 21
+✓ Prepared DataFrame with 21 records
+✓ Calculated summary statistics
+
+============================================================
+GENERATING PERFORMANCE VISUALIZATIONS
+============================================================
+
+====================================================================================================
+PERFORMANCE SUMMARY STATISTICS
+====================================================================================================
+Configuration                  Mean (s)     Std (s)      Min (s)      Max (s)      Speedup
+----------------------------------------------------------------------------------------------------
+All Optimizations              70.117       0.928        69.149       71.369       0.90x ⚠️ (regression)
+Baseline (No Opts)             62.782       4.441        58.902       69.000       1.00x (baseline)
+Broadcast                      66.607       2.726        63.666       70.236       0.94x ⚠️ (regression)
+Cache                          169.345      11.207       154.713      181.936      0.37x ⚠️ (regression)
+EarlyProj                      75.484       17.144       61.934       99.671       0.83x ⚠️ (regression)
+FilterOpt                      55.334       0.181        55.184       55.589       1.13x (minor improvement)
+Partition                      74.690       7.410        68.719       85.132       0.84x ⚠️ (regression)
+====================================================================================================
