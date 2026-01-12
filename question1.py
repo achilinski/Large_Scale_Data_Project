@@ -7,7 +7,6 @@ def main():
     
     df_machine = loader.load_machine_events()
     
-    df_job = loader.load_job_events()
 
     print("\n" + "="*50)
     print("STARTING ANALYSIS")
@@ -21,8 +20,19 @@ def main():
                       .groupBy("cpus") \
                       .count() \
                       .orderBy("cpus")
+                      
+    q11_result = df_machine.filter("cpus IS NOT NULL") \
+                      .select("machine_id", "cpus") \
+                      .dropDuplicates(["machine_id"]) \
+                      .groupBy("cpus") \
+                      .count() \
+                      .orderBy("cpus")
+    
+
+
     
     q1_result.show()
+    q11_result.show()
 
     loader.stop()
 
